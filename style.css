@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+/* CSS code */
+
+/* Header */
+.header {
+  background-color:#005884;
+  padding: 10px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgb(241, 242, 245);
+  color: rgba(20, 18, 18, 0.785);
+  font-size: 14px;
+ 
+}
+.header-top-right {
+  
+  margin-left:500px;;
+  gap: 10px;
+}
+
+/* Navbar */
+.navbar {
+  background-color:#005884;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navbar-logo img {
+  height: 85x;
+  width:85px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display:flex;
+  /* gap: 20px; */
+}
+
+ .navbar-menu li {
+  margin-right: 10px;
+
+} 
+.navbar-menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 50px 0 0 50px;
+}
+
+.navbar-flag img {
+  height: 70px;
+}
+
+
+.content {
+  padding: 20px;
+}
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Set the desired height for the slideshow */
+  overflow:hidden;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 10;
+  transition: opacity 10s ;
+}
+
+.slide image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide.active {
+  opacity:10;
+}
+
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.feature {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.footer {
+  background-color:#005884;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  background-color:rgb(241, 242, 245);
+  margin-top: 150px;
+}
+
+.footer-content ul {
+  list-style: none;
+  margin-right:80px;
+  justify-content: space-around;
+  display: flex;
+}
+  .footer-content ul li {
+    padding: 30px;
+    text-align: center;
+  }
+  
+
+.footer-content ul li a {
+  margin:0 150px 0px 0;
+  text-decoration:underline;
+  color: rgba(20, 18, 18, 0.785);
+}
+.footer-content  p{
+  text-align:justify
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar-menu {
+    margin-top: 10px;
+  }
+
+  .navbar-menu li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
