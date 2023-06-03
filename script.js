@@ -8,5 +8,5 @@ function goToAccidentReportForm(){
 function ShowWeatherAlert()
 {
   window.location.href = "weather.html";
-
 }
+
