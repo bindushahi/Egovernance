@@ -1,85 +1,57 @@
-// JavaScript code
-
-// Function to handle the click event on the "Login" button
-function handleLogin() {
-  // Perform login logic here
-  alert("Login functionality is coming soon!");
-}
-
-// Function to handle the click event on the "Sign Up" button
-function handleSignUp() {
-  // Perform sign up logic here
-  alert("Sign Up functionality is coming soon!");
-}
-
-// Function to handle the click event on the "Submit Feedback" button
-function handleSubmitFeedback() {
-  // Get the feedback message entered by the user
-  var feedback = document.getElementById("feedback-input").value;
-
-  // Display a thank you message
-  alert("Thank you for your feedback!");
-
-  // Clear the feedback input field
-  document.getElementById("feedback-input").value = "";
-}
-
-// Function to handle the click event on the "Report Accident" button
+// Report Accident button click handler
 function handleReportAccident() {
-  // Perform accident reporting logic here
-  alert("Accident reporting functionality is coming soon!");
+  // Replace this with your desired functionality
+  console.log("Report Accident clicked");
 }
 
-// Function to handle the click event on the "Check Road Conditions" button
-function handleCheckRoadConditions() {
-  // Perform road condition checking logic here
-  alert("Road condition checking functionality is coming soon!");
-}
-
-// Function to handle the click event on the "Get Weather Alerts" button
-function handleGetWeatherAlerts() {
-  // Perform weather alerts logic here
-  alert("Weather alerts functionality is coming soon!");
-}
-
-// Function to handle the click event on the "Emergency Assistance" button
+// Emergency Assistance button click handler
 function handleEmergencyAssistance() {
-  // Perform emergency assistance logic here
-  alert("Emergency assistance functionality is coming soon!");
-}
-// JavaScript code
-let slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
-
-function showSlide(n) {
-  // Hide all slides
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  // Show the selected slide
-  slides[n].style.display = "block";
+  // Replace this with your desired functionality
+  console.log("Emergency Assistance clicked");
 }
 
-function nextSlide() {
-  currentSlide++;
-  if (currentSlide >= slides.length) {
-    currentSlide = 0;
-  }
-  showSlide(currentSlide);
+// Submit Feedback button click handler
+function handleSubmitFeedback() {
+  // Replace this with your desired functionality
+  console.log("Submit Feedback clicked");
 }
 
-function previousSlide() {
-  currentSlide--;
-  if (currentSlide < 0) {
-    currentSlide = slides.length - 1;
-  }
-  showSlide(currentSlide);
+// Get Weather Alerts button click handler
+function handleGetWeatherAlerts() {
+  // Replace this with your desired functionality
+  console.log("Get Weather Alerts clicked");
 }
 
-// Show the initial slide
-showSlide(currentSlide);
+// Attach event listeners to the buttons
+document.addEventListener("DOMContentLoaded", function() {
+  var reportAccidentButton = document.querySelector("#report-accident-btn");
+  reportAccidentButton.addEventListener("click", handleReportAccident);
 
-// Add event listeners for next and previous buttons
-document.getElementById("next-btn").addEventListener("click", nextSlide);
-document.getElementById("prev-btn").addEventListener("click", previousSlide);
+  var emergencyAssistanceButton = document.querySelector("#emergency-assistance-btn");
+  emergencyAssistanceButton.addEventListener("click", handleEmergencyAssistance);
+
+  var submitFeedbackButton = document.querySelector("#submit-feedback-btn");
+  submitFeedbackButton.addEventListener("click", handleSubmitFeedback);
+
+  var getWeatherAlertsButton = document.querySelector("#get-weather-alerts-btn");
+  getWeatherAlertsButton.addEventListener("click", handleGetWeatherAlerts);
+});
+// Function to handle reporting an accident
+function handleReportAccident() {
+  alert("Accident reported successfully!");
+}
+
+// Function to handle emergency assistance
+function handleEmergencyAssistance() {
+  alert("Emergency assistance requested!");
+}
+
+// Function to handle submitting driver feedback
+function handleSubmitFeedback() {
+  alert("Driver feedback submitted!");
+}
+
+// Function to handle getting weather alerts
+function handleGetWeatherAlerts() {
+  alert("Weather alerts retrieved!");
+}
