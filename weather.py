@@ -2,7 +2,7 @@ import datetime as dt
 import requests 
 
 BASE_URL="https://api.openweathermap.org/data/3.0/weather?"
-API_KEY="1198126d3c1b28854ae8424581f1b6dd"
+API_KEY=""
 CITY="Kathmandu"
 
 def kelvin_to_celsius_farenheit(kelvin):
