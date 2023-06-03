@@ -5,9 +5,9 @@ import mysql.connector
 # Connect to the MySQL database
 db = mysql.connector.connect(
     host="localhost",
-    user="your_username",
-    password="your_password",
-    database="your_database"
+    user="root",
+    password="",
+    database="road safety monitoring system"
 )
 
 # Check weather conditions and generate updates
@@ -17,7 +17,7 @@ def generate_weather_updates():
     weather_conditions = ['Rainy', 'Sunny', 'Cloudy']
 
     # Generate updates for specific locations
-    locations = ['City A', 'City B', 'City C']
+    locations = ['Kathmandu', 'Lalitpur', 'Bhaktapur']
 
     for location in locations:
         # Generate a random weather condition
