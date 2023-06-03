@@ -9,4 +9,7 @@ function ShowWeatherAlert()
 {
   window.location.href = "weather.html";
 }
-
+function goToEmergencyAssistance()
+{
+  window.location.href = "emergency_assistance.html";
+}
