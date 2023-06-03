@@ -1,114 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="weatherstyle.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Weather Update</title>
+  <title>Weather Alert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color:#005884;
+    }
+    
+    .weather-condition {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .weather-condition .location {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    
+    .weather-condition .condition {
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
-        <div class="header-top">
-          <div class="header-top-right">
-            <span> ☎ +977-1-5970646, 4211917</span>
-            &nbsp;&nbsp;
-            <span>📩 Official: info@.gov.np</span>&nbsp;&nbsp;
-            <span>| Technical Support: govnp@rsms.gov.np</span>
-          </div>
-        </div>
-        <header class="header">
-          <nav class="navbar">
-            <div class="navbar-logo">
-              <img src="image/n.png" alt="Logo">
-            </div>
-            <div class="navbar-search">
-              <input type="text" placeholder="Search">
-              <button type="submit">&#128269;</button>
-            </div>
-            <ul class="navbar-menu">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Road Condition</a></li>
-              <li><a href="#">Login</a></li>
-            </ul>
-            <div class="navbar-flag">
-              <img src="image/nepalflag.gif" alt="Nepal Flag">
-            </div>
-            </nav>
-          </header>
-    <div class="container">
-        <div class="current-info">
-
-            <div class="date-container">
-                <div class="time" id="time">
-                    12:30 <span id="am-pm">PM</span>
-                </div>
-                <div class="date" id="date">
-                    Monday, 25 May
-                </div>
-
-                <div class="others" id="current-weather-items">
-                    
-                    
-                </div>
-            </div>
-
-            <div class="place-container">
-                <div class="time-zone" id="time-zone">Asia/Kolkata</div>
-                <div id="country" class="country">IN</div>
-            </div>
-        </div>
-
-        
-    </div>
-
-    <div class="future-forecast">
-        <div class="today" id="current-temp">
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-            <div class="other">
-                <div class="day">Monday</div>
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-        </div>
-
-        <div class="weather-forecast" id="weather-forecast">
-            <div class="weather-forecast-item">
-                <div class="day">Tue</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Wed</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Thur</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Fri</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-            <div class="weather-forecast-item">
-                <div class="day">Sat</div>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </div>
-
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    <script src="weatherjs.js"></script>
+  <h1>Weather Alert - Nepal</h1>
+  
+  <div class="weather-condition">
+    <div class="location">Kathmandu:</div>
+    <div class="condition">Sunny</div>
+  </div>
+  
+  <div class="weather-condition">
+    <div class="location">Pokhara:</div>
+    <div class="condition">Cloudy</div>
+  </div>
+  
+  <div class="weather-condition">
+    <div class="location">Chitwan:</div>
+    <div class="condition">Rainy</div>
+  </div>
+  
+  <div class="weather-condition">
+    <div class="location">Biratnagar:</div>
+    <div class="condition">Thunderstorms</div>
+  </div>
+  
 </body>
 </html>
