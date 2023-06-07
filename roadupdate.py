@@ -1,6 +1,7 @@
 import datetime
 import random
 import mysql.connector
+import requests
 
 # Connect to the MySQL database
 db = mysql.connector.connect(
@@ -12,29 +13,54 @@ db = mysql.connector.connect(
 
 # Check weather conditions and generate updates
 def generate_weather_updates():
-    # Retrieve weather data from an API or other sources
-    # For this example, we generate random weather conditions
-    weather_conditions = ['Rainy', 'Sunny', 'Cloudy']
-
-    # Generate updates for specific locations
+    
+    # API endpoint for weather data
+    api_url = "https://api.weatherapi.com/v1/current.json"
+    
+    # API key for accessing the weather data
+    api_key = "4259a1926e83487ab21133210230706"
+    
+    # List of locations for which to generate weather updates
     locations = ['Kathmandu', 'Lalitpur', 'Bhaktapur']
-
+    
     for location in locations:
-        # Generate a random weather condition
-        condition = random.choice(weather_conditions)
-
-        # Create an update record
-        update = {
-            'User': 'Server',
-            'Timestamp': datetime.datetime.now(),
-            'Location': location,
-            'Description': f"Weather condition: {condition}",
-            'Source': 'Server',
-            'Picture': None  # Optional: Set the picture field if applicable
+        # Parameters for the API request
+        params = {
+            'key': api_key,
+            'q': location
         }
-
-        # Insert the update into the database
-        insert_update(update)
+        
+        try:
+            # Send the API request
+            response = requests.get(api_url, params=params)
+            
+            # Check if the request was successful (status code 200)
+            if response.status_code == 200:
+                # Extract the weather data from the response
+                weather_data = response.json()
+                
+                # Get the relevant weather information
+                condition = weather_data['current']['condition']['text']
+                temperature = weather_data['current']['temp_c']
+                
+                # Create an update record
+                update = {
+                    'User': 'Server',
+                    'Timestamp': datetime.datetime.now(),
+                    'Location': location,
+                    'Description': f"Weather condition: {condition}, Temperature: {temperature}°C",
+                    'Source': 'Server',
+                    'Picture': None  # Optional: Set the picture field if applicable
+                }
+                
+                # Insert the update into the database
+                insert_update(update)
+                
+            else:
+                print(f"Error retrieving weather data for {location}. Status code: {response.status_code}")
+        
+        except requests.exceptions.RequestException as e:
+            print(f"Error retrieving weather data for {location}: {e}")
 
 # Insert the generated update into the database
 def insert_update(update):
