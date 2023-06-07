@@ -87,54 +87,52 @@
   <div class="container">
     <h1>Accident Report Form</h1>
     
-    <form action="submit_report.php" method="POST" enctype="multipart/form-data">
-      <label for="reportDateTime">Report Date and Time:</label>
-      <input type="datetime-local" id="reportDateTime" name="reportDateTime" required><br>
+    <form action="accident_report.php" method="POST" enctype="multipart/form-data">
+      <label for="ReportDateTime">Report Date and Time:</label>
+      <input type="datetime-local" id="ReportDateTime" name="ReportDateTime" required><br>
       
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="location" required><br>
+      <label for="Location">Location:</label>
+      <input type="text" id="Location" name="Location" required><br>
       
-      <label for="description">Description:</label>
-      <textarea id="description" name="description"></textarea><br>
+      <label for="Description">Description:</label>
+      <textarea id="Description" name="Description"></textarea><br>
       
-      <label for="vehicleLicensePlate">Vehicle License Plate:</label>
-      <input type="text" id="vehicleLicensePlate" name="vehicleLicensePlate" required><br>
+      <label for="VehicleLicensePlate">Vehicle License Plate:</label>
+      <input type="text" id="VehicleLicensePlate" name="VehicleLicensePlate" required><br>
       
-      <label for="vehicleType">Vehicle Type:</label>
-      <input type="text" id="vehicleType" name="vehicleType" required><br>
+      <label for="VehicleType">Vehicle Type:</label>
+      <input type="text" id="VehicleType" name="VehicleType" required><br>
       
-      <label for="vehicleColor">Vehicle Color:</label>
-      <input type="text" id="vehicleColor" name="vehicleColor" required><br>
+      <label for="VehicleColor">Vehicle Color:</label>
+      <input type="text" id="VehicleColor" name="VehicleColor" required><br>
       
-      <label for="driverName">Driver Name:</label>
-      <input type="text" id="driverName" name="driverName"><br>
+      <label for="DriverName">Driver Name:</label>
+      <input type="text" id="DriverName" name="DriverName"><br>
       
-      <label for="driverContact">Driver Contact:</label>
-      <input type="text" id="driverContact" name="driverContact"><br>
+      <label for="DriverContact">Driver Contact:</label>
+      <input type="text" id="DriverContact" name="DriverContact"><br>
       
-      <label for="driverLicense">Driver License:</label>
-      <input type="text" id="driverLicense" name="driverLicense"><br>
+      <label for="DriverLicense">Driver License:</label>
+      <input type="text" id="DriverLicense" name="DriverLicense"><br>
       
-      <label for="witnessName">Witness Name:</label>
-      <input type="text" id="witnessName" name="witnessName"><br>
+      <label for="WitnessName">Witness Name:</label>
+      <input type="text" id="WitnessName" name="WitnessName"><br>
       
-      <label for="witnessContact">Witness Contact:</label>
-      <input type="text" id="witnessContact" name="witnessContact"><br>
+      <label for="WitnessContact">Witness Contact:</label>
+      <input type="text" id="WitnessContact" name="WitnessContact"><br>
       
-      <label for="injuries">Injuries:</label>
-      <textarea id="injuries" name="injuries"></textarea><br>
+      <label for="Injuries">Injuries:</label>
+      <textarea id="Injuries" name="Injuries"></textarea><br>
       
-      <label for="damages">Damages:</label>
-      <textarea id="damages" name="damages"></textarea><br>
+      <label for="Damages">Damages:</label>
+      <textarea id="Damages" name="Damages"></textarea><br>
       
-      <label for="photos">Photos:</label>
-      <input type="file" id="photos" name="photos"><br>
+      <label for="Photos">Photos:</label>
+      <input type="file" id="Photos" name="Photos"><br>
       
-      <label for="policeReportNumber">Police Report Number:</label>
-      <input type="text" id="policeReportNumber" name="policeReportNumber"><br>
-      
-      <label for="additionalComments">Additional Comments:</label>
-      <textarea id="additionalComments" name="additionalComments"></textarea><br>
+     
+      <label for="AdditionalComments">Additional Comments:</label>
+      <textarea id="AdditionalComments" name="AdditionalComments"></textarea><br>
       
       <input type="submit" value="Submit Report">
     </form>
