@@ -10,6 +10,9 @@
     <h1>Road Condition Updates</h1>
 
     <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     // PHP code to fetch updates from the database and generate HTML content
     // Replace DB_HOST, DB_USER, DB_PASS, and DB_NAME with your database credentials
     $conn = mysqli_connect("localhost", "root", "", "road safety monitoring system");
