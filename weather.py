@@ -1,28 +1,29 @@
-import datetime as dt
-import requests 
+#Weather information of any place using Python
 
-BASE_URL="https://api.openweathermap.org/data/3.0/weather?"
-API_KEY=""
-CITY="Kathmandu"
+import requests
+import os
+from datetime import datetime
 
-def kelvin_to_celsius_farenheit(kelvin):
-    celsius= kelvin-273.15
-    farenheit = celsius * (9/5)+32
-    return celsius,farenheit
+user_api = os.environ['current_weather_data']
+location = input("Enter the city name: ")
 
-url= BASE_URL+ "appid=" + API_KEY + "&q=" +CITY
+complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+user_api
+api_link = requests.get(complete_api_link)
+api_data = api_link.json()
+print(api_data)
 
-response=requests.get(url).json()
-print(response)
+#create variables to store and display data
+temp_city = ((api_data['main']['temp']) - 273.15)
+weather_desc = api_data['weather'][0]['description']
+hmdt = api_data['main']['humidity']
+wind_spd = api_data['wind']['speed']
+date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
 
-temp_kelvin= response['main']['temp']
-temp_celsius, temp_farenheit = kelvin_to_celsius_farenheit(temp_kelvin)
-feels_like_kelvin = response['main']['feels_like']
-feels_like_celsius, feels_like_farenheit = kelvin_to_celsius_farenheit(feels_like_kelvin)
-wind_speed= response['wind']['spped']
-humidity = response['main']['huminity']
-description = response['weather'][0]['description']
-sunrise_time=dt.datetime.utcfromtimestamp(response['sys']['sunrise']+response['timezone'])
-sunset_time=dt.datetime.utcfromtimestamp(response['sys']['sunset']+response['timezone'])
+print ("-------------------------------------------------------------")
+print ("Weather Stats for - {}  || {}".format(location.upper(), date_time))
+print ("-------------------------------------------------------------")
 
-
+print ("Current temperature is: {:.2f} deg C".format(temp_city))
+print ("Current weather desc  :",weather_desc)
+print ("Current Humidity      :",hmdt, '%')
+print ("Current wind speed    :",wind_spd ,'kmph')
