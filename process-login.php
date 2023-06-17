@@ -32,11 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = $row["Password"];
 
         if (password_verify($password, $hashedPassword)) {
-            echo "Login successful!";
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+            echo "<script> alert('Login successful!');</script>";
             // Redirect the user to the index page
             header("Location: index.html");
             exit;
-        } else {
+        }  else {
             echo "<script> alert('Error: Incorrect password'); </script>";
         }
         
