@@ -1,4 +1,4 @@
---create driver feedback table
+--create driver fee9dback table
 CREATE TABLE DriverFeedback (
   License_Plate_No VARCHAR(20) NOT NULL,
   Vehicle VARCHAR(50) NOT NULL,

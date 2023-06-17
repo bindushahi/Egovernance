@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road Safety Monitoring System - Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="header-top">
+    <div class="header-top-right">
+      <span> ☎ +977-1-5970646, 4211917</span>
+      &nbsp;&nbsp;
+      <span>📩 Official: info@.gov.np</span>&nbsp;&nbsp;
+      <span>| Technical Support: govnp@rsms.gov.np</span>
+    </div>
+  </div>
+  <header class="header">
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="image/n.png" alt="Logo">
+      </div>
+      <div class="navbar-search">
+        <input type="text" placeholder="Search">
+        <button type="submit">Search</button>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="roadupdate.php">Road Condition</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+      <div class="navbar-flag">
+        <img src="image/nepalflag.gif" alt="Nepal Flag">
+      </div>
+    </nav>
+  </header>
+  <div class="header-news">
+    <marquee behavior="scroll" direction="left">News Update: Road condition of Nepal - Construction is going on the road in Bhaktapur.</marquee>
+  </div>
+
+  <div class="content">
+    <h1>Login to Road Safety Monitoring System</h1>
+    <form class="login-form" action="process-login.php" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <div id="weatherContainer" class="weather-container"></div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <ul>
+        <li>
+          <h3>About Us</h3>
+          <p>Welcome to Road Safety Monitoring System! We are dedicated to ensuring the safety and well-being of road users by providing an advanced monitoring and reporting platform.</p>
+        </li>
+        <li>
+          <h3>Contact Us</h3>
+          <p>Have any questions or feedback? We would love to hear from you.</p>
+          <p>Email: <a href="mailto:info@roadsafetymonitoring.com" style="color: white;">info@roadsafetymonitoring.com</a></p>
+          <p>Phone: 9853729390</p>
+          <p>Address: Baluwatar, Kathmandu, Nepal</p>
+        </li>
+        <li>
+          <h3>Office Hours</h3>
+          <p>10:00 AM - 5:00 PM (Sunday to Thursday)</p>
+          <p>10:00 AM - 3:00 PM (Friday)</p>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 Road Safety System. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
