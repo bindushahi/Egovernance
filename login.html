@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Road Safety Monitoring System - Login</title>
+  <title>Build a Box</title>
+    <!--Bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!--fontawesone-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
   <style>
@@ -24,6 +30,10 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           }
+.container h2{
+    text-align: center;
+    color:#005884;
+}
 </style>
 </head>
 
@@ -58,22 +68,23 @@
   <div class="header-news">
     <marquee behavior="scroll" direction="left">News Update: Road condition of Nepal - Construction is going on the road in Bhaktapur.</marquee>
   </div>
+  <br><br><br>
     <div class="container">
-      <h1></h1>
       <div id="registration-form">
-        <h2>Register</h2>
-        <form action="process-registration.php" method="POST">
+        <h2>New User Register</h2>
+        <br>
+        <form action="process-registration.php" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" placeholder="enter your username" autocomplete="off" required>
           </div><br>
           <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" placeholder="enter your password" required>
           </div><br>
           <div class="form-group">
             <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="reenter your password" autocomplete="off" required>
           </div><br>
           <button type="submit">Register</button>
           <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
