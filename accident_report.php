@@ -27,6 +27,8 @@ $result = mysqli_query($conn, $query);
 
 if ($result) {
   echo "Accident reported successfully";
+  header("Location: index.html");
+  exit;
 } else {
   echo "Error: " . mysqli_error($conn);
 }
