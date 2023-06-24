@@ -82,7 +82,7 @@
 <body>
   <div class="container">
     <h1>Driver Feedback Form</h1>
-    <form action="submit_feedback.php" method="POST">
+    <form action="submit_feedback.php" method="POST" onsubmit="showAlert()">
       <label for="license_plate_no">License Plate No:</label>
       <input type="text" id="license_plate_no" name="license_plate_no" autocomplete="off" required><br>
 
@@ -121,6 +121,9 @@
         container.style.opacity = 1;
       }, 200);
     });
+    function showAlert() {
+      alert("Form submitted successfully!");
+    }
   </script>
 </body>
 </html>
