@@ -55,7 +55,7 @@
                 <button><a href="admin_index.php?admin_insert_road_updates" class="nav-link text-dramatic m-1">
                     Insert Road Updates</a></button>
                 <button><a href="admin_index.php?admin_verify_road_updates" class="nav-link text-dramatic m-1">
-                    Verfiy Road Updates</a></button>
+                    Verify Road Updates</a></button>
                 <button><a href="admin_index.php?admin_view_accident_reports" class="nav-link text-dramatic  m-1">
                     View Accident Reports</a></button>
                 <button><a href="admin_index.php?admin_view_driver_feedbacks" class="nav-link text-dramatic m-1">
