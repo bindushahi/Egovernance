@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         <?php
-        $get_updates="SELECT * from `roadconditionupdates`";
+        $get_updates="SELECT * from `roadconditionupdates` ORDER BY Timestamp DESC";
         $result=mysqli_query($conn,$get_updates);
         $number=0;
         while($row=mysqli_fetch_assoc($result)){
