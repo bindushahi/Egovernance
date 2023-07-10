@@ -62,8 +62,7 @@
                     View Driver Feedbacks</a></button>
                 <button><a href="admin_index.php?list_users" class="nav-link text-dramatic  m-1">
                     List users</a></button>
-               <button><a href="" class="nav-link text-dramatic m-1">
-                Logout</a></button>
+              
             </div>
         </div>
     </div>
@@ -83,6 +82,9 @@
             }
             if(isset($_GET['admin_view_driver_feedbacks'])){
                 include('admin_view_driver_feedbacks.php');
+            }
+            if(isset($_GET['edit_road_update'])){
+                include('edit_road_update.php');
             }
             if(isset($_GET['list_users'])){
                 include('list_users.php');
