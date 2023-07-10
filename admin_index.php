@@ -89,6 +89,9 @@
             if(isset($_GET['list_users'])){
                 include('list_users.php');
             }
+            if(isset($_GET['delete_road_update'])){
+                include('delete_road_update.php');
+            }
         ?>
     </div>
 <!--footer-->  
