@@ -18,13 +18,15 @@ $reportername=$_POST['ReporterName'];
 $reportercontact=$_POST['ReporterContact'];
 $injuries=$_POST['Injuries'];
 $damages=$_POST['Damages'];
-$photos =$_FILES['Photos'];
+$Photos=$_FILES['Photos']['name'];
+$temp_image=$_FILES['Photos']['tmp_name'];
+move_uploaded_file($temp_image,"accident_image/$Photos");
 $additionalcomments=$_POST['AdditionalComments'];
 
 // Insert data into the bill table
 $query = "INSERT INTO accidentreports (ReportDateTime,Location,Description,VehicleLicensePlate,VehicleType,VehicleColor,DriverName,DriverContact,DriverLicense,WitnessName,WitnessContact,ReporterName,ReporterContact, Injuries,Damages,Photos,AdditionalComments) 
 VALUES ('$datetime','$location', '$description', '$vehicleLicencePlate', '$vehicletype', '$vehiclecolor','$drivername',
-'$drivercontact','$driverlicence','$witnessname','$witnesscontact','$reportername','$reportercontact','$injuries','$damages','$photos','$additionalcomments')";
+'$drivercontact','$driverlicence','$witnessname','$witnesscontact','$reportername','$reportercontact','$injuries','$damages','$Photos','$additionalcomments')";
 $result = mysqli_query($conn, $query);
 
 if ($result) {

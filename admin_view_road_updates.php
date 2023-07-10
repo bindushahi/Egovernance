@@ -38,12 +38,12 @@
             <td> <img src='road_update_images/<?php echo $road_update_image2;?>' class='product_img'/></td>
             <td> <img src='road_update_images/<?php echo $road_update_image3;?>' class='product_img'/></td>
 
-            <td><?php echo $Description?>/-</td>
+            <td><?php echo $Description?></td>
             <td> <?php echo $date?></td>
             <td> <?php echo $Source?></td>
-            <td><a href='admin_index.php?edit_products=<?php echo $update_id ?>' class=''> 
+            <td><a href='admin_index.php?edit_road_update=<?php echo $update_id ?>' class=''> 
             <i class='fa-solid fa-pen-to-square'></a></td>
-            <td><a href='admin_index.php?delete_product=<?php echo $update_id ?>' class=''>
+            <td><a href='admin_index.php?delete_road_update=<?php echo $update_id ?>' class=''>
             <i class='fa-solid fa-trash'></a></td>        
         </tr>
         <?php
