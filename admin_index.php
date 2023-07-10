@@ -33,7 +33,7 @@
         <img src="image/n.png" alt="Logo">
       </div>
       <ul class="navbar-menu">
-        <li><a href="login.html">Login</a></li>
+        <h2>Road Safety Monitoring System</h2>
       </ul>
       <div class="navbar-flag">
         <img src="image/nepalflag.gif" alt="Nepal Flag">
@@ -43,7 +43,7 @@
    
     <!--nav end-->
     <div >
-        <h3 class="text-center p-2">Manage Details</h3>
+        <h3 class="text-center p-2">Admin Panel</h3>
     </div>
     <div class="col">
         <div class="col-md-12 p-1 align-items-center">
