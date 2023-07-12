@@ -160,7 +160,32 @@
   <div class="row">
     <div class="col-md-8">
       <!-- Road condition carousel -->
-      <section class="carousel">
+      <?php
+      // Fetch images and location names from the roadconditionupdates table
+$query = "SELECT road_update_image1, Location FROM roadconditionupdates";
+$result = mysqli_query($conn, $query);
+
+// Store the fetched data in an array
+$carouselItems = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $image = $row['road_update_image1'];
+    $location = $row['Location'];
+
+    // Add the image and location to the carousel items array
+    $carouselItems[] = array('image' => $image, 'location' => $location);
+}
+?>
+
+<!-- Display the carousel -->
+<div class="carousel">
+  <?php foreach ($carouselItems as $item): ?>
+    <div class="carousel-item">
+      <div class="place-name"><?php echo $item['location']; ?></div>
+      <img src="road_update_images/<?php echo $item['image']; ?>" alt="<?php echo $item['location']; ?>">
+    </div>
+  <?php endforeach; ?>
+</div>
+      <!--section class="carousel">
         <div id="road-carousel" class="carousel-item active">
           <div class="place-name">Balkumari</div>
           <img src="image/ro.jpg" alt="Balkumari Road Condition">
@@ -178,7 +203,7 @@
           <img src="image/rr.jpg" alt="Maitighar Road Condition">
         </div>
         <!-- Add more carousel items as needed -->
-      </section>
+      <!--/section-->
     </div>
     <div class="col-md-4">
       <!-- Update form -->
