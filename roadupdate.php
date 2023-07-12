@@ -141,7 +141,7 @@
       </div>
       <ul class="navbar-menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="roadupdate.html">Road Condition</a></li>
+        <li><a href="roadupdate.php">Road Condition</a></li>
         <li><a href="login.html">Login</a></li>
       </ul>
       <div class="navbar-flag">

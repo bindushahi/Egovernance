@@ -60,6 +60,8 @@
                     View Driver Feedbacks</a></button>
                 <button><a href="admin_index.php?list_users" class="nav-link text-dramatic  m-1">
                     List users</a></button>
+                <button><a href="admin_logout.php" class="nav-link text-dramatic  m-1">
+                    Logout</a></button>
               
             </div>
         </div>
