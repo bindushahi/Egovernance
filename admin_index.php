@@ -54,6 +54,8 @@
                     View Road Updates</a></button>
                 <button><a href="admin_index.php?admin_insert_road_updates" class="nav-link text-dramatic m-1">
                     Insert Road Updates</a></button>
+                <button><a href="admin_index.php?admin_verify_road_updates" class="nav-link text-dramatic m-1">
+                    Verify Road Updates</a></button>
                 <button><a href="admin_index.php?admin_view_accident_reports" class="nav-link text-dramatic  m-1">
                     View Accident Reports</a></button>
                 <button><a href="admin_index.php?admin_view_driver_feedbacks" class="nav-link text-dramatic m-1">
@@ -91,6 +93,12 @@
             }
             if(isset($_GET['delete_road_update'])){
                 include('delete_road_update.php');
+            }
+            if(isset($_GET['delete_user_road_update'])){
+                include('delete_user_road_update.php');
+            }
+            if(isset($_GET['accept_road_updates'])){
+                include('accept_road_updates.php');
             }
         ?>
     </div>

@@ -8,10 +8,12 @@
 <head>
   <title>Road Updates</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
   <style>
     /* Additional CSS styles for the update page */
     .carousel {
-      width: 50%;
+      width: 100%;
       max-width: 1000px;
       height: 400px;
       margin: 20px auto;
@@ -154,45 +156,116 @@
   <div class="header-news">
     <marquee behavior="scroll" direction="left">News Update: Road condition of Nepal - Construction is going on the road in Bhaktapur.</marquee>
   </div>
-
-  <!-- Road condition carousel -->
-  <section class="carousel">
-    <div id="road-carousel" class="carousel-item active">
-      <div class="place-name">Balkumari</div>
-      <img src="image/ro.jpg" alt="Balkumari Road Condition">
-
+  <div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Road condition carousel -->
+      <section class="carousel">
+        <div id="road-carousel" class="carousel-item active">
+          <div class="place-name">Balkumari</div>
+          <img src="image/ro.jpg" alt="Balkumari Road Condition">
+        </div>
+        <div class="carousel-item">
+          <div class="place-name">Bhaktapur</div>
+          <img src="image/roo.jpg" alt="Bhaktapur Road Condition">
+        </div>
+        <div class="carousel-item">
+          <div class="place-name">Koteshwor</div>
+          <img src="image/r.jpg" alt="Koteshwor Road Condition">
+        </div>
+        <div class="carousel-item">
+          <div class="place-name">Maitighar</div>
+          <img src="image/rr.jpg" alt="Maitighar Road Condition">
+        </div>
+        <!-- Add more carousel items as needed -->
+      </section>
     </div>
-    <div class="carousel-item">
-      <div class="place-name">Bhaktapur</div>
-      <img src="image/roo.jpg" alt="Bhaktapur Road Condition">
+    <div class="col-md-4">
+      <!-- Update form -->
+      <section class="update-form">
+        <h2>Submit Road Update</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="updatelocation">Location*</label>
+            <input type="text" id="updatelocation" name="updatelocation" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="roadcondition">Road Condition*</label>
+            <textarea id="roadcondition" name="roadcondition" class="form-control" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="roadimage1">Upload Image*</label>
+            <input type="file" id="roadimage1" name="roadimage1" class="form-control-file" required>
+          </div>
+          <div class="form-group">
+            <label for="updaterepoter">Reporter Name*</label>
+            <input type="text" id="updaterepoter" name="updaterepoter" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="updaterepotercontact">Reporter Contact*</label>
+            <input type="text" id="updaterepotercontact" name="updaterepotercontact" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="roadimage2">Additional Image</label>
+            <input type="file" id="roadimage2" name="roadimage2" class="form-control-file">
+          </div><div class="form-group">
+            <label for="roadimage3">Additional Image</label>
+            <input type="file" id="roadimage3" name="roadimage3" class="form-control-file">
+          </div>
+
+          <div class="form-outline mb-4 w-50 m-auto">
+                <input type="submit" name="insert_user_report"
+                class="btn btn_info mb-3 p-3 bg-info" value="Submit">
+            </div>
+        </form>
+      </section>
     </div>
-    <div class="carousel-item">
-      <div class="place-name">Koteshwor</div>
-      <img src="image/r.jpg" alt="Koteshwor Road Condition">
-    </div>
-    <div class="carousel-item">
-      <div class="place-name">Maitighar</div>
-      <img src="image/rr.jpg" alt="Maitighar Road Condition">
-    </div>
-    <!-- Add more carousel items as needed -->
-  </section>
+  </div>
+</div>
+<?php
+if (isset($_POST['insert_user_report'])) {
+  // Retrieve form data
+    $updatelocation = $_POST['updatelocation'];
+    $roadcondition = $_POST['roadcondition'];
+    $updaterepoter = $_POST['updaterepoter'];
+    $updaterepotercontact = $_POST['updaterepotercontact'];
 
-  <!-- Update form -->
-  <section class="update-form">
-    <h2>Submit Road Update</h2>
-    <form>
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="location" required>
+    // Handle file upload
+    $image1 = $_FILES['roadimage1']['name'];
+    $image1_tmp = $_FILES['roadimage1']['tmp_name'];
 
-      <label for="condition">Road Condition:</label>
-      <textarea id="condition" name="condition" required></textarea>
+    $image2 = $_FILES['roadimage2']['name'];
+    $image2_tmp = $_FILES['roadimage2']['tmp_name'];
 
-      <label for="image">Upload Image:</label>
-      <input type="file" id="image" name="image">
+    $image3 = $_FILES['roadimage3']['name'];
+    $image3_tmp = $_FILES['roadimage3']['tmp_name'];
 
-      <button type="submit">Submit</button>
-    </form>
-  </section>
+    // Move uploaded files to a specific folder
+    move_uploaded_file($image1_tmp,"user_road_update_images/$image1");
+    move_uploaded_file($image2_tmp,"user_road_update_images/$image2");
+    move_uploaded_file($image3_tmp,"user_road_update_images/$image3");
+
+    // Prepare and execute the SQL query
+    $query = "INSERT INTO roadreport 
+    (updatelocation, roadcondition, updaterepoter, updaterepotercontact, roadimage1, roadimage2, roadimage3,created_at)
+              VALUES ('$updatelocation', '$roadcondition', '$updaterepoter', '$updaterepotercontact', '$image1', '$image2', '$image3',NOW())";
+
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+      // Data inserted successfully
+      echo "<script>alert('Road report submitted successfully')</script>";
+    } else {
+      // Error inserting data
+      echo "Error: " . mysqli_error($con);
+    }
+    
+  }
+?>
+
 
   <!-- Safety precautions -->
   <section class="safety-precautions">
