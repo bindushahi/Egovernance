@@ -34,11 +34,11 @@ if (isset($_GET['accept_road_updates'])) {
         copy($sourceFolder . $roadimage1, $movedImage1);
         copy($sourceFolder . $roadimage2, $movedImage2);
         copy($sourceFolder . $roadimage3, $movedImage3);
-      
+      $source='User';
         // Insert the data into the roadconditionupdate table
         $insertQuery = "INSERT INTO roadconditionupdates
         (Location, Description, road_update_image1, road_update_image2, road_update_image3,Source,Timestamp) 
-        VALUES ('$updatelocation', '$roadcondition', '$roadimage1', '$roadimage2', '$roadimage3','$updatereporter','$created_at')";
+        VALUES ('$updatelocation', '$roadcondition', '$roadimage1', '$roadimage2', '$roadimage3','$source','$created_at')";
         $insertResult = mysqli_query($conn, $insertQuery);
 
         if ($insertResult) {
