@@ -9,6 +9,7 @@
   <title>Road Updates</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
   <style>
     /* Additional CSS styles for the update page */
@@ -137,14 +138,10 @@
       <div class="navbar-logo">
         <img src="image/n.png" alt="Logo">
       </div>
-      <div class="navbar-search">
-        <input type="text" placeholder="Search">
-        <button type="submit">Search</button>
-      </div>
       <ul class="navbar-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="roadupdate.php">Road Condition</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html"><i class="far fa-user"></i></a></li>
       </ul>
       <div class="navbar-flag">
         <img src="image/nepalflag.gif" alt="Nepal Flag">
