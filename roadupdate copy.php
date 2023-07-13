@@ -7,23 +7,30 @@
 
 <head>
   <title>Road Updates</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
   <style>
     /* Additional CSS styles for the update page */
-    .carousel {
-      width: 100%;
-      max-width: 1000px;
-      height: 400px;
-      margin: 20px auto;
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+    }
+
+    .main-carousel {
+      width: 80%;
+      max-width: 1200px;
+      height: 600px;
+      margin: 0 auto;
       overflow: hidden;
       position: relative;
       color: #005884;
     }
 
-    .carousel-item {
+    .main-carousel-item {
       display: none;
       position: absolute;
       top: 0;
@@ -33,21 +40,91 @@
       animation: fade 5s infinite;
     }
 
-    .carousel-item.active {
+    .main-carousel-item.active {
       display: block;
     }
 
-    .carousel-item .place-name {
+    .main-carousel-item .place-name {
       font-size: 24px;
       font-weight: bold;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
     }
 
-    .carousel-item img {
+    .main-carousel-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .main-carousel-description {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      color: #fff;
+    }
+
+    .main-carousel-description h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .secondary-carousel-container {
+      width: 100%;
+      max-width: 1000px;
+      margin-top: 20px;
+      justify-content: space-between;
+
+    }
+
+    .secondary-carousel {
+      display:flex;
+      justify-content:space-between;
+      margin-top: 10px;
+
+    }
+
+    .secondary-carousel-item {
+      flex-basis: calc(33.33% - 100px);
+
+      width:1000px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      color: #005884;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      animation: fade 5s infinite;
+
+    }
+
+    .secondary-carousel-item.active {
+      animation: highlight 0.5s ease-in-out infinite alternate;
+    }
+
+    .secondary-carousel-item .place-name {
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .secondary-carousel-item .road-condition {
+      width:100%;
+      height: 100px;
+      overflow:hidden;
+      margin: 0 auto;
+    }
+
+    .secondary-carousel-item .road-condition img {
+      width:100%;
+      height: 100%;
+      object-fit:fill;
     }
 
     @keyframes fade {
@@ -65,9 +142,20 @@
       }
     }
 
+    @keyframes highlight {
+      0% {
+        background-color: rgba(0, 0, 0, 0);
+      }
+      100% {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+
     .update-form {
-      max-width: 500px;
-      margin: 20px auto;
+      width: 30%;
+      max-width: 400px;
+      margin-top: 40px;
+      margin-left: 80px;
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -87,7 +175,7 @@
     }
 
     .update-form button {
-      background-color:#cd4747;
+      background-color: #cd4747;
       color: #fff;
       padding: 10px 20px;
       border: none;
@@ -95,24 +183,21 @@
     }
 
     .update-form button:hover {
-      background-color:#4CAF50;
+      background-color: #4CAF50;
     }
 
     .safety-precautions {
       margin-top: 90px;
       margin-left: 50px;
       margin-right: 50px;
-
-      background-color:#cd4747;
-
+      background-color: #cd4747;
     }
 
     .safety-precautions h3 {
       font-size: 20px;
       color: #005884;
       font-weight: bold;
-      background-color:#f2f2f2;
-
+      background-color: #f2f2f2;
       margin-bottom: 10px;
     }
 
@@ -155,32 +240,39 @@
   </div>
   <div class="container">
   <div class="row">
-    <div class="col-md-8">
+  <div class="col-md-8">
       <!-- Road condition carousel -->
-      <?php
+    <?php
       // Fetch images and location names from the roadconditionupdates table
-$query = "SELECT road_update_image1, Location FROM roadconditionupdates";
-$result = mysqli_query($conn, $query);
+        $query = "SELECT * FROM roadconditionupdates";
+        $result = mysqli_query($conn, $query);
 
-// Store the fetched data in an array
-$carouselItems = array();
-while ($row = mysqli_fetch_assoc($result)) {
-    $image = $row['road_update_image1'];
-    $location = $row['Location'];
+      // Store the fetched data in an array
+      $carouselItems = array();
+      while ($row = mysqli_fetch_assoc($result)) {
+        $image = $row['road_update_image1'];
+        $Location = $row['Location'];
+        $Description = $row['Description'];
+        $Source = $row['Source'];
+
 
     // Add the image and location to the carousel items array
-    $carouselItems[] = array('image' => $image, 'location' => $location);
-}
-?>
+        $carouselItems[] = array('image' => $image, 'location' => $Location);
+      }
+    ?>
 
 <!-- Display the carousel -->
 <div class="carousel">
   <?php foreach ($carouselItems as $item): ?>
     <div class="carousel-item">
       <div class="place-name"><?php echo $item['location']; ?></div>
-      <img src="road_update_images/<?php echo $item['image']; ?>" alt="<?php echo $item['location']; ?>">
+      <img src="road_update_images/<?php echo $item['image']; ?>" alt="<?php echo $item['Location']; ?>">
+      <div class="main-carousel-description">
+          <h4> <p><?php echo $Description?></p> </h4>
+          <p>Source:<?php echo $Source?></p>
+      </div>
     </div>
-  <?php endforeach; ?>
+  
 </div>
       <!--section class="carousel">
         <div id="road-carousel" class="carousel-item active">
@@ -191,15 +283,6 @@ while ($row = mysqli_fetch_assoc($result)) {
           <div class="place-name">Bhaktapur</div>
           <img src="image/roo.jpg" alt="Bhaktapur Road Condition">
         </div>
-        <div class="carousel-item">
-          <div class="place-name">Koteshwor</div>
-          <img src="image/r.jpg" alt="Koteshwor Road Condition">
-        </div>
-        <div class="carousel-item">
-          <div class="place-name">Maitighar</div>
-          <img src="image/rr.jpg" alt="Maitighar Road Condition">
-        </div>
-        <!-- Add more carousel items as needed -->
       <!--/section-->
      <?php
      global $conn; // assuming $con is the database connection variable
@@ -220,7 +303,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         $Source = $row['Source'];
         $road_update_image1 = $row['road_update_image1'];
         echo "
-        <div class='col-md-4 mb-2'>
+        <div class='col-6 col-md-4'>
             <div class='card'>
                 <img class='card-img-top' src='road_update_images/$road_update_image1' alt='image'>
                 <div class='card-body'>

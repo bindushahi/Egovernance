@@ -159,7 +159,7 @@
       <!-- Road condition carousel -->
       <?php
       // Fetch images and location names from the roadconditionupdates table
-$query = "SELECT road_update_image1, Location FROM roadconditionupdates";
+$query = "SELECT * FROM roadconditionupdates";
 $result = mysqli_query($conn, $query);
 
 // Store the fetched data in an array
@@ -167,6 +167,8 @@ $carouselItems = array();
 while ($row = mysqli_fetch_assoc($result)) {
     $image = $row['road_update_image1'];
     $location = $row['Location'];
+    $Description = $row['Description'];
+    $Source = $row['Source'];
 
     // Add the image and location to the carousel items array
     $carouselItems[] = array('image' => $image, 'location' => $location);
@@ -179,6 +181,10 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="carousel-item">
       <div class="place-name"><?php echo $item['location']; ?></div>
       <img src="road_update_images/<?php echo $item['image']; ?>" alt="<?php echo $item['location']; ?>">
+      <div class="main-carousel-description">
+          <h4> <p><?php echo $Description?></p> </h4>
+          <p>Source:<?php echo $Source?></p>
+      </div>
     </div>
   <?php endforeach; ?>
 </div>
@@ -202,6 +208,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <!-- Add more carousel items as needed -->
       <!--/section-->
     </div>
+    
     <div class="col-md-4">
       <!-- Update form -->
       <section class="update-form">
@@ -245,8 +252,42 @@ while ($row = mysqli_fetch_assoc($result)) {
         </form>
       </section>
     </div>
+    <?php
+     global $conn; // assuming $con is the database connection variable
+    
+    $select_query = 'SELECT * FROM `roadconditionupdates`';
+    $result_query = mysqli_query($conn, $select_query);
+
+    if (!$result_query) {
+        // Handle query error
+        echo "Error executing query: " . mysqli_error($con);
+        return;
+    }
+
+    while ($row = mysqli_fetch_assoc($result_query)) {
+        $UpdateID = $row['UpdateID'];
+        $Location = $row['Location'];
+        $Description = $row['Description'];
+        $Source = $row['Source'];
+        $road_update_image1 = $row['road_update_image1'];
+        echo "
+        <div class='col-6 col-md-4'>
+            <div class='card'>
+                <img class='card-img-top' src='road_update_images/$road_update_image1' alt='image'>
+                <div class='card-body'>
+                    <h5 class='card-title'>$Location</h5>
+                    <p class='card-text'>$Description</p>
+                    <p class='card-text'>Soruce: $Source</p>
+                </div>
+            </div>
+        </div>";
+    }
+?>
+    </div>
   </div>
+  
 </div>
+
 <?php
 if (isset($_POST['insert_user_report'])) {
   // Retrieve form data
